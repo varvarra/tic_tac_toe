@@ -13,3 +13,52 @@
 - A player wins if they claim all the fields in a row, column or diagonal
 - A game is over if a player wins
 - A game is over when all fields are taken
+
+## User Stories
+
+```
+As a player
+To play tic-tac-toe
+I want to choose a role to play with (X or O)
+```
+
+```
+As a player
+To play tic-tac-toe
+I want to be able to claim a field if it is not already taken
+```
+
+```
+As a player
+To let another player play
+I should not be allowed to claim a field straight after another claim
+```
+
+```
+As a player
+To win
+I want to be able to claim all the fields in a row, column or diagonal
+```
+
+```
+As a player
+To finish playing
+One of the players should win
+```
+
+```
+As a player
+To finish playing
+All of the fields should be claimed
+```
+
+### Approach and Domain Model
+
+Players       ||     Game       ||   Board ||
+
+    <-----has 2----             
+    ------play------>
+                  -----has one->
+  ------can claim fields of ----->
+    ---can win---->                            
+    ---can lose--->
