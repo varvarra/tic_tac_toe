@@ -8,9 +8,10 @@
     this.turn = playerOne.role;
 
     this.play = function (row, column) {
+      if (this.board.isFieldTaken(row, column)) throw Error('Field is taken, try another one');
       this.board.claimField(row, column, role = this.turn);
       this.changeTurn();
-      return this.turn;
+      return "Now is the turn of" + this.turn;
     };
   }
 

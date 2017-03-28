@@ -13,4 +13,10 @@ describe("Board", function(){
     expect(board.fields).toEqual([['', '', ''], ['', '', 'X'], ['', '', '']]);
   });
 
+  it("should check if the field is already taken", function(){
+    board.claimField(1, 2, role);
+    board.claimField(1, 2, role);
+    expect(board.isFieldTaken).toBeTruthy();
+  });
+
 });

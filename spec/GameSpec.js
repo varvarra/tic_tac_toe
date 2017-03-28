@@ -24,5 +24,11 @@ describe("Game", function(){
     expect(game.turn).toEqual('0');
   });
 
+  it("should throw error massage if the field is taken", function(){
+    game.play(1, 2);
+    expect(function() {game.play(1, 2);}).toThrowError("Field is taken, try another one");
+    // expect(game.play(1, 2)).toThrow(new Error("Field is taken, try another one"));
+  });
+
 
 });

@@ -11,10 +11,8 @@
   };
 
   Board.prototype.isFieldTaken = function(row, column) {
-    var message = 'Field is taken, try another one';
-    return this.fields[row][column] !== '';
+    // var message = 'Field is taken, try another one';
+    return this.fields[row][column] !== '' ;
   };
-
-
   exports.Board = Board;
 })(this);
