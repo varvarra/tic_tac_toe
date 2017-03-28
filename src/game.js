@@ -7,17 +7,16 @@
     this.board = board;
     this.turn = playerOne.role;
 
-    this.play = function () {
-      this.board.claimField();
+    this.play = function (row, column) {
+      this.board.claimField(row, column, role = this.turn);
       this.changeTurn();
-      return this.turn
+      return this.turn;
     };
   }
 
 
   Game.prototype.changeTurn =  function (){
-    console.log(this);
-    this.turn === this.playerOne.role ? this.turn = this.playerTwo.role : this.turn = this.playerOne.role
+    this.turn === this.playerOne.role ? this.turn = this.playerTwo.role : this.turn = this.playerOne.role;
   };
 
 

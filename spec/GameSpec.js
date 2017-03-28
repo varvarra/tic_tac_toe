@@ -16,12 +16,12 @@ describe("Game", function(){
   });
 
   it("lets player to play", function(){
-    expect(game.play).toBeDefined();
+    expect(game.play(1, 2)).toBeTruthy();
   });
 
   it("after one player has played, the turn is changed", function(){
-    game.play();
-    expect(game.turn).toEqual('0')
+    game.play(1, 2);
+    expect(game.turn).toEqual('0');
   });
 
 
