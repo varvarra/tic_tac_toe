@@ -14,6 +14,12 @@
 - A game is over if a player wins
 - A game is over when all fields are taken
 
+### Instructions
+
+ - clone this repository  
+ - Open a SpecRunner.html file - you will see the test coverage
+ - Open the console in the browser to interact with an application
+
 ## User Stories
 
 ```
@@ -52,13 +58,15 @@ To finish playing
 All of the fields should be claimed
 ```
 
-### Approach and Domain Model
+### Approach
 
-Players       ||     Game       ||   Board ||
+- I decided to build my application based on Single Responsibility Principle and gave each 'class' its own responsibility.
+- **Game** constructor function - understands just how to play
+- **Rulebook** understands the rules of the game
+- **Player** just knows the properties of the players
+- **Board** only knows the state of its fields and how to change them
 
-    <-----has 2----             
-    ------play------>
-                  -----has one->
-  ------can claim fields of ----->
-    ---can win---->                            
-    ---can lose--->
+I tried to follow these design principles as a good practice which might be very helpful if the application is extended.
+
+
+I plan to further add an interface jQuery layer to the game.
