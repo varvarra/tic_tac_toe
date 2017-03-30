@@ -19,4 +19,14 @@ describe("Board", function(){
     expect(board.isFieldTaken).toBeTruthy();
   });
 
+  it("should check if all fields are claimed", function(){
+    for (var i = 0; i < 3; i++){
+      for (var j = 0; j < 3; j++) {
+        board.claimField(i, j, role);
+      }
+    }
+    console.log(board.fields);
+    expect(board.areAllClaimed()).toBe(true);
+  });
+
 });
