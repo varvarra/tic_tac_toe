@@ -19,7 +19,11 @@
 
 
   Game.prototype.changeTurn =  function (){
-    this.turn === this.playerOne.role ? this.turn = this.playerTwo.role : this.turn = this.playerOne.role;
+    if (this.turn === this.playerOne.role) {
+      this.turn = this.playerTwo.role;
+    } else {
+      this.turn = this.playerOne.role;
+    }
   };
 
 
