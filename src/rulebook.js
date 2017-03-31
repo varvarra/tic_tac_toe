@@ -11,12 +11,22 @@
   };
 
   Rulebook.prototype.gameFinished = function (board) {
-    return board.areAllClaimed || isWinning();
+    return board.areAllClaimed() || isWinning();
   };
 
-  Rulebook.prototype.isWinning = function() {
-
-  };
+  Rulebook.prototype.isWinning = function(board, role) {
+    if ((board.fields[0][0] == role && board.fields[0][1] === role && board.fields[0][2] === role)||
+        (board.fields[1][0] == role && board.fields[1][1] === role && board.fields[1][2] === role)||
+        (board.fields[2][0] == role && board.fields[2][1] === role && board.fields[2][2] === role)||
+        (board.fields[0][0] == role && board.fields[1][0] === role && board.fields[2][0] === role)||
+        (board.fields[0][1] == role && board.fields[1][1] === role && board.fields[2][1] === role)||
+        (board.fields[0][2] == role && board.fields[1][2] === role && board.fields[2][2] === role)||
+        (board.fields[0][0] == role && board.fields[1][1] === role && board.fields[2][2] === role)||
+        (board.fields[0][2] == role && board.fields[1][1] === role && board.fields[2][0] === role))
+          {return true;} else {
+         return false;
+       }
+    };
 
   exports.Rulebook = Rulebook;
 
