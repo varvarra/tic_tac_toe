@@ -4,30 +4,38 @@
   function Rulebook(){
     this.MIN_FIELDS = 0;
     this.MAX_FIELDS = 2;
+    this.LENGTH = 2;
   }
 
   Rulebook.prototype.isClaimedIncorrectly = function (row, column) {
     return (row < this.MIN_FIELDS || row > this.MAX_FIELDS)||(column < this.MIN_FIELDS || column > this.MAX_FIELDS);
   };
 
-  Rulebook.prototype.gameFinished = function (board) {
-    return board.areAllClaimed() || isWinning();
+  Rulebook.prototype.isDraw = function (board) {
+    return !this.isWon(board) && board.areAllClaimed()
   };
 
-  Rulebook.prototype.isWinning = function(board, role) {
-    if ((board.fields[0][0] == role && board.fields[0][1] === role && board.fields[0][2] === role)||
-        (board.fields[1][0] == role && board.fields[1][1] === role && board.fields[1][2] === role)||
-        (board.fields[2][0] == role && board.fields[2][1] === role && board.fields[2][2] === role)||
-        (board.fields[0][0] == role && board.fields[1][0] === role && board.fields[2][0] === role)||
-        (board.fields[0][1] == role && board.fields[1][1] === role && board.fields[2][1] === role)||
-        (board.fields[0][2] == role && board.fields[1][2] === role && board.fields[2][2] === role)||
-        (board.fields[0][0] == role && board.fields[1][1] === role && board.fields[2][2] === role)||
-        (board.fields[0][2] == role && board.fields[1][1] === role && board.fields[2][0] === role))
-          {return true;} else {
-         return false;
-       }
-    };
 
+  Rulebook.prototype.isWon = function(board) {
+    return (checkForWin(board.diagonals()) || checkForWin(board.columns())) || checkForWin(board.rows());
+  };
+
+  function checkForWin(enumerable) {
+    var result = false;
+    enumerable.forEach(function(arr) {
+      if (isWinPattern(arr))
+        result = true;
+    });
+    return result;
+  };
+
+  function isWinPattern(arr){
+     for (var i = 1; i<3; i++) {
+        if (arr[i] === "" || arr[i] !== arr[i-1])
+           return false;
+     }
+     return true;
+  };
   exports.Rulebook = Rulebook;
 
 })(this);

@@ -27,5 +27,26 @@
     }
   };
 
+Board.prototype.rows = function () {
+  return this.fields
+};
+
+Board.prototype.columns = function () {
+  var columns = [[],[],[]];
+  for (var y = 0; y<3; y++) {
+    for (var x = 0; x<3; x++) { columns[x].push(this.fields[y][x]) }
+  }
+  return columns;
+};
+
+Board.prototype.diagonals = function () {
+  var diagonals = [[],[]];
+  for (var i = 0; i<3; i++) {
+    diagonals[0].push(this.fields[i][i]);
+    diagonals[1].push(this.fields[i][2-i]);
+  }
+  return diagonals;
+};
+
   exports.Board = Board;
 })(this);
