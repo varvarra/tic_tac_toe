@@ -62,9 +62,9 @@ All of the fields should be claimed
 
 - I decided to build my application based on Single Responsibility Principle and gave each 'class' its own responsibility.
 - **Game** constructor function - understands just how to play
-- **Rulebook** understands the rules of the game
-- **Player** just knows the properties of the players
-- **Board** only knows the state of its fields and how to change them
+- **Rulebook** understands the rules of the game. Encapsulating behaviour of the rules in the Rulebook class will help avoid problems if the rules change not so ff all the information about rules was inside a Game class.
+- **Player** just knows the properties of the players.
+- **Board** only knows the state of its fields and how to change them.
 
 I tried to follow these design principles as a good practice which might be very helpful if the application is extended.
 

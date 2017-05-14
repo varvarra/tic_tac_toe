@@ -12,7 +12,7 @@
   };
 
   Rulebook.prototype.isDraw = function (board) {
-    return !this.isWon(board) && board.areAllClaimed()
+    return board.areAllClaimed() && !this.isWon(board)  
   };
 
 
